@@ -35,7 +35,7 @@ import Location from "./Location.astro";
   if (deepLinkSlugs.includes(slug)) {
     const target = document.querySelector(`kmc-${slug}`);
     setTimeout(() => {
-      target && target.scrollIntoView({ behavior: 'smooth' });
+      target && target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 500);
   }
 
@@ -48,9 +48,9 @@ import Location from "./Location.astro";
       if (linkSlug && deepLinkSlugs.includes(linkSlug)) {
         event.preventDefault();
         const target = document.querySelector(`kmc-${linkSlug}`);
-        target && target.scrollIntoView({ behavior: 'smooth' });
-        console.log('target', target);
-
+        setTimeout(() => {
+          target && target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
         appStore.setState({ drawerOpened: false });
       }
     });
