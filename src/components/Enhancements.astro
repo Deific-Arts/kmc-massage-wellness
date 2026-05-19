@@ -1,0 +1,99 @@
+<kmc-enhancements>
+  <section>
+    <h2>Enhancements</h2>
+    <kemet-carousel index="1" arrows>
+      <kemet-carousel-prev slot="prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+        </svg>
+      </kemet-carousel-prev>
+
+      <kemet-carousel-slide slot="slides">
+        <div>
+          <h3>Cold Stone Face Massage</h3>
+          <p>Chilled marble stones to reduce puffiness, ease sinus pressure, and refresh the skin.</p>
+        </div>
+      </kemet-carousel-slide>
+      <kemet-carousel-slide slot="slides">
+        <div>
+          <h3>Targeted salt stone massage</h3>
+          <p>Concentrated Himalayan salt stone heat to instantly melt knots in your main trouble spot.</p>
+        </div>
+      </kemet-carousel-slide>
+      <kemet-carousel-slide slot="slides">
+        <div>
+          <h3>Hydrating Hand therapy</h3>
+          <p>A rich, moisture-locking massage to deeply nourish and restore overworked hands.</p>
+        </div>
+      </kemet-carousel-slide>
+      <kemet-carousel-slide slot="slides">
+        <div>
+          <h3>Hydrating Foot Therapy</h3>
+          <p>An intensive moisturizing treatment to revive dry soles and soothe tired feet.</p>
+        </div>
+      </kemet-carousel-slide>
+      <kemet-carousel-slide slot="slides">
+        <div>
+          <h3>Aromatherapy</h3>
+          <p>Infuse your session with premium essential oils to deeply calm or energize your senses.</p>
+        </div>
+      </kemet-carousel-slide>
+      <kemet-carousel-slide slot="slides">
+        <div>
+          <h3>Aromatherapy Scalp Massage</h3>
+          <p>A luxurious scalp massage with aromatic oils to melt away mental tension and headaches.</p>
+        </div>
+      </kemet-carousel-slide>
+      <kemet-carousel-slide slot="slides">
+        <div>
+          <h3>CBD Oils</h3>
+          <p>Upgrade your massage lotion to premium CBD oil to deeply target inflammation and muscle soreness.</p>
+        </div>
+      </kemet-carousel-slide>
+
+      <kemet-carousel-next slot="next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+        </svg>
+      </kemet-carousel-next>
+    </kemet-carousel>
+  </section>
+</kmc-enhancements>
+<script>
+  import HTMLKemetCarouselElement from 'kemet-ui/elements/carousel.js';
+  import 'kemet-ui/elements/carousel-slide';
+  import 'kemet-ui/elements/carousel-prev';
+  import 'kemet-ui/elements/carousel-next';
+
+  const carousel = document.querySelector('kemet-carousel') as HTMLKemetCarouselElement;
+  const options =  { perView: 1, gap: 24, rewind: false, slideshow: 10 }
+  const breakponts = {
+    1024: { perView: 2, center: false, slideshow: 10 }
+  };
+
+  carousel.breakpoints = breakponts;
+  carousel.options = options;
+  setTimeout(() => {
+    carousel.updateIndex(0);
+  }, 500);
+</script>
+<style>
+  section {
+    text-align: center;
+    max-width: calc(var(--app-page-width) + 12rem);
+  }
+
+  kemet-carousel {
+    --kemet-carousel-slides-border: transparent;
+  }
+
+  h2 {
+    margin-bottom: 3rem;
+  }
+
+  div {
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 2px solid white;
+  }
+</style>

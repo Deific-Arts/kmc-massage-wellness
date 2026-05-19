@@ -1,0 +1,31 @@
+kmc-hero {
+  --color: rgb(var(--color-cater));
+  color: var(--color);
+
+  h1 {
+    font-size: clamp(4rem, 8vw, 8rem);
+    font-weight: 100;
+    line-height: 0.9;
+    max-width: 768px;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 2vw, 2rem);
+    font-weight: 300;
+    line-height: 1.2;
+    max-width: 1024px;
+    margin: 2rem 0;
+    opacity: 0.8;
+  }
+}
+
+kemet-modal {
+  --kemet-modal-radius: 0.5rem;
+  --kemet-modal-dialog-min-width: 80%;
+  --kemet-modal-dialog-mobile-width: 90%;
+}
+
+kemet-drawer {
+  --kemet-drawer-background-color: rgb(var(--color-deuce));
+}

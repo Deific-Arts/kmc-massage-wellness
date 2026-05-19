@@ -1,0 +1,58 @@
+---
+import MainNav from "./MainNav.astro";
+import Durations from "./Durations.astro";
+import OnTheMenu from "./OnTheMenu.astro";
+import Enhancements from "./Enhancements.astro";
+import Testimonials from "./Testimonials.astro";
+import Benefits from "./Benefits.astro";
+import FAQS from "./FAQS.astro";
+import Location from "./Location.astro";
+---
+
+<kmc-nav-main>
+  <MainNav />
+</kmc-nav-main>
+<kmc-hero>
+  <h1>Your tension ends here.</h1>
+  <h2>Experience expertly crafted massage therapy to help you breathe easier, move better, and fully unwind.</h2>
+</kmc-hero>
+<Durations />
+<OnTheMenu />
+<Enhancements />
+<Testimonials />
+<Benefits />
+<FAQS />
+<Location />
+<script>
+  import appStore from '../stores/app';
+  import '../elements/kmc-nav-main';
+  import '../elements/kmc-hero';
+
+  const { pathname } = window.location;
+  const slug = pathname.split('/').pop() ?? '/';
+  const deepLinkSlugs = ['menu', 'enhancements', 'testimonials', 'benefits', 'faqs', 'location'];
+
+  if (deepLinkSlugs.includes(slug)) {
+    const target = document.querySelector(`kmc-${slug}`);
+    setTimeout(() => {
+      target && target.scrollIntoView({ behavior: 'smooth' });
+    }, 500);
+  }
+
+  const anchors = document.querySelectorAll('a');
+
+  Array.from(anchors).forEach((anchor) => {
+    anchor.addEventListener('click', (event) => {
+      const linkSlug = (event.target as HTMLAnchorElement).href.split('/').pop();
+
+      if (linkSlug && deepLinkSlugs.includes(linkSlug)) {
+        event.preventDefault();
+        const target = document.querySelector(`kmc-${linkSlug}`);
+        target && target.scrollIntoView({ behavior: 'smooth' });
+        console.log('target', target);
+
+        appStore.setState({ drawerOpened: false });
+      }
+    });
+  });
+</script>

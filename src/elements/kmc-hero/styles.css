@@ -1,0 +1,69 @@
+:host {
+  --color: var(--app-color);
+
+  color: var(--color);
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+section {
+  div {
+    position: absolute;
+    max-width: 1200px;
+    width: 90%;
+    bottom: 14rem;
+    left: calc(50%);
+    transform: translateX(-50%);
+    z-index: 2;
+    padding: 0 2rem;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    background: rgb(var(--color-cater) / 0.5);
+    transform: skewY(-8deg) translateY(90%) scale(1.1);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    background: var(--app-background);
+    transform: skewY(-4deg) translateY(90%);
+  }
+}
+
+.overlay {
+  content: '';
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  /* background: rgb(var(--color-deuce) / 0.5); */
+  background-image: linear-gradient(to bottom, rgb(var(--color-deuce) / 0.85) 2%, rgb(var(--color-deuce) / 0.5) 33%, transparent);
+}

@@ -1,11 +1,11 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Home from '../components/Home.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const title = "KMC Message and Wellness | Massage Therapy Clinton Township MI";
+const description = "Experience the best massage therapy in Clinton Township, MI. KMC offers custom deep tissue, Swedish, and healing bodywork. Book your relaxation today!";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={title} description={description}>
+	<Home />
 </Layout>

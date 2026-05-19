@@ -1,0 +1,52 @@
+---
+const currentYear = new Date().getFullYear();
+---
+<footer>
+  <section>
+    <nav>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+    </nav>
+    <p>©{currentYear} KMC Message and Wellness. All rights reserved.</p>
+  </section>
+</footer>
+<style>
+  footer {
+    color: white;
+    padding: 0.25rem 1rem;
+    background: black;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  p {
+    @media (width > 1024px) {
+      margin-left: 2rem;
+    }
+  }
+
+  nav {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    @media (width > 1024px) {
+      margin-top: 0;
+    }
+  }
+
+  section {
+    margin: 0 auto;
+    max-width: var(--app-page-width);
+
+    @media (width > 1024px) {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      align-items: center;
+    }
+  }
+</style>

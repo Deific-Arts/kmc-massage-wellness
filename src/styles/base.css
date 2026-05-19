@@ -1,0 +1,76 @@
+:root {
+  --color-ace: 68 150 204;
+  --color-deuce: 4 61 121;
+  --color-trey: 105 182 209;
+  --color-cater: 237 245 248;
+  --color-cinque: 192 221 238;
+  --color-sice: 12 108 201;
+
+  --app-color: rgb(var(--color-sice));
+  --app-background: rgb(var(--color-cater));
+  --app-primary: rgb(var(--color-deuce));
+  --app-secondary: rgb(var(--color-ace));
+  --app-page-width: 1280px;
+  --app-color-border: rgb(var(--color-cinque));
+
+  --kemet-color-primary: var(--app-primary);
+}
+
+html,
+body {
+  font-family: "Cactus Classical Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--app-color);
+  margin: 0;
+  padding: 0;
+  background-color: var(--app-background);
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+article {
+  max-width: var(--app-page-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+  min-height: calc(100vh - 52px);
+}
+
+kmc-menu,
+kmc-durations,
+kmc-enhancements,
+kmc-testimonials,
+kmc-benefits,
+kmc-faqs,
+kmc-location {
+  scroll-margin-top: 80px;
+  display: block;
+  margin-bottom: 6rem;
+
+  & > * {
+    margin: 0 auto 4rem auto;
+    padding: 0 1rem;
+    max-width: var(--app-page-width);
+  }
+}
+

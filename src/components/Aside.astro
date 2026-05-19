@@ -1,0 +1,42 @@
+---
+const { company } = Astro.props;
+---
+
+<figure>
+  <img src="https://placehold.co/256x256?text=Logo" alt="KMC Message and Wellness" />
+  <figcaption>{company}</figcaption>
+</figure>
+
+<nav class="nav">
+  <slot />
+</nav>
+
+<style>
+  figure {
+    margin: 0;
+    padding: 0;
+  }
+
+  figcaption {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .nav {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    padding: 1rem;
+
+    a {
+      font-size: 1.25rem;
+      text-decoration: none;
+      color: rgb(var(--color-ace));
+    }
+  }
+</style>
+

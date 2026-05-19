@@ -1,3 +1,10 @@
+---
+import Aside from "../components/Aside.astro";
+import Footer from "../components/Footer.astro";
+import MainNav from "../components/MainNav.astro";
+
+const { title, description } = Astro.props;
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,19 +12,57 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+    {description && <meta name="description" content={description} />}
+		{title && <title>{title}</title>}
 	</head>
 	<body>
-		<slot />
+    <kemet-drawer overlay side="right">
+      <aside slot="navigation">
+        <Aside company="KMC Message and Wellness">
+          <MainNav />
+        </Aside>
+      </aside>
+      <main slot="content">
+        <slot />
+        <Footer />
+      </main>
+    </kemet-drawer>
+    <kemet-modal class="book" close-on-click>
+      <div style="height: 80vh;">[embed mango mint here]</div>
+    </kemet-modal>
 	</body>
 </html>
+<script>
+  // styles
+  import 'kemet-ui/styles/kemet.base.css';
+  import '../styles/base.css';
+  import '../styles/cea.css';
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+  // elements
+  import 'kemet-ui/elements/button';
+  import '../elements/kmc-button/';
+
+  // handle app state
+  import appStore from '../stores/app';
+  import HTMLKemetDrawerElement from 'kemet-ui/elements/drawer.js';
+  import HTMLKemetModalElement from 'kemet-ui/elements/modal.js';
+  import HTMLKmcNavMainElement from '../elements/kmc-nav-main';
+
+  const drawer = document.querySelector('kemet-drawer') as HTMLKemetDrawerElement;
+  const bookModal = document.querySelector('kemet-modal.book') as HTMLKemetModalElement;
+  const mainNav = document.querySelector('kmc-nav-main') as HTMLKmcNavMainElement;
+
+  appStore.subscribe((state) => {
+    drawer.opened = state.drawerOpened;
+    bookModal.opened = state.bookModalOpened;
+    mainNav.filled = !state.drawerOpened;
+  });
+
+  bookModal.addEventListener('kemet-closed', () => {
+    appStore.setState({ bookModalOpened: false });
+  });
+</script>

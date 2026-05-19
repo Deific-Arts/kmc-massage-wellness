@@ -1,0 +1,73 @@
+:host {
+  --color: var(--app-background);
+  --link-color: var(--app-background);
+  --background-color: transparent;
+
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  transition: all 0.5s ease-in-out;
+  background-color: var(--background-color);
+}
+
+:host([filled]) {
+  --color: rgb(var(--color-deuce));
+  --background-color: white;
+  --link-color: rgb(var(--color-deuce));
+}
+
+section {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  max-width: var(--app-page-width);
+  padding: 1rem;
+  margin: 0 auto;
+
+  & > :last-child {
+    display: flex;
+    gap: 0.33rem;
+    justify-content: flex-end;
+  }
+
+  @media (width > 1024px) {
+    grid-template-columns: auto auto 1fr;
+  }
+}
+
+nav {
+  display: none;
+
+  @media (width > 1024px) {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.25rem;
+    margin-left: 2rem;
+  }
+}
+
+button {
+  color: var(--color);
+  border: none;
+  cursor: pointer;
+  background: none;
+
+  @media (width > 1024px) {
+    display: none;
+  }
+}
+
+kmc-button {
+  position: relative;
+  top: 3px;
+}
+
+::slotted(a) {
+  color: var(--link-color);
+  text-decoration: none;
+}
+

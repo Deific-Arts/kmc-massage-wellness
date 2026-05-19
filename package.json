@@ -12,6 +12,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.3.3"
+    "astro": "^6.3.3",
+    "kemet-ui": "^4.1.0",
+    "lit": "^3.3.3",
+    "zustand": "^5.0.13"
   }
 }
