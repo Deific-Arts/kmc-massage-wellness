@@ -1,0 +1,30 @@
+name: deploy
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '>=22.12.0'
+
+      - name: Build Site
+        working-directory: ./
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_DEPLOY_HOST_DEV }}
+          username: ${{ secrets.FTP_DEPLOY_USERNAME_DEV }}
+          password: ${{ secrets.FTP_DEPLOY_PASSWORD_DEV }}
+          port: ${{ secrets.FTP_DEPLOY_PORT_DEV }}
+          protocol: ftps
+          local-dir: './dist/'
+          server-dir: '/public_html/'
