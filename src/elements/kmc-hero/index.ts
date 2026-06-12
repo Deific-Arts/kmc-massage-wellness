@@ -9,7 +9,7 @@ import appStore, { type AppStore } from '../../stores/app';
 @customElement('kmc-hero')
 export default class KmcHero extends LitElement {
   static styles = [unsafeCSS(styles)];
-  @property() videoSrc: string = '/hero.mp4';
+  @property() videoSrc: string = '/media/hero.mp4';
 
   private appController: ZustandController<AppStore, {
   }, {

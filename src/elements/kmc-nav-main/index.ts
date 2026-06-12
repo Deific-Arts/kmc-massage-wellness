@@ -39,7 +39,7 @@ export default class KmcNavMain extends LitElement {
   render() {
     return html`
       <section>
-        <img src="https://placehold.co/90x40?text=Logo" alt="Logo">
+        <img src="/logo/transparent.png" alt="KMC Massage & Wellness Logo" width="148">
         <nav>
           <slot></slot>
         </nav>
