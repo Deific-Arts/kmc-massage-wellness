@@ -56,7 +56,10 @@ export default class KmcNavMain extends LitElement {
   }
 
   private handleBookClick() {
-    this.appController.actions?.setBookModalOpened(!this.appController.data.bookModalOpened);
+    // this.appController.actions?.setBookModalOpened(!this.appController.data.bookModalOpened);
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    window.open('https://kimberlylaughtoncoleman.glossgenius.com/services','Book an Appointment',`width=${width},height=${height}`);
   }
 
   private handleDrawerToggle() {
