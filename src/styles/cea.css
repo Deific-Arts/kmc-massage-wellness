@@ -20,6 +20,13 @@ kmc-hero {
   }
 }
 
+kmc-nav-main {
+  --app-color-link: white;
+  &[filled] {
+    --app-color-link: rgb(var(--color-link));
+  }
+}
+
 kemet-modal {
   --kemet-modal-radius: 0.5rem;
   --kemet-modal-dialog-min-width: 80%;
