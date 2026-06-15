@@ -5,8 +5,10 @@
   --color-cater: 237 245 248;
   --color-cinque: 192 221 238;
   --color-sice: 12 108 201;
+  --color-link: 34 117 100;
 
   --app-color: rgb(var(--color-sice));
+  --app-color-link: rgb(var(--color-link));
   --app-background: rgb(var(--color-cater));
   --app-primary: rgb(var(--color-deuce));
   --app-secondary: rgb(var(--color-ace));
@@ -25,6 +27,12 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--app-background);
+}
+
+a {
+  color: var(--app-color-link);
+  font-weight: bold;
+  text-decoration: none;
 }
 
 h2 {

@@ -3,8 +3,7 @@ const { company } = Astro.props;
 ---
 
 <figure>
-  <img src="https://placehold.co/256x256?text=Logo" alt="KMC Massage and Wellness" />
-  <figcaption>{company}</figcaption>
+  <img src="/logo/light.png" alt="{company} Logo" />
 </figure>
 
 <nav class="nav">
@@ -13,8 +12,12 @@ const { company } = Astro.props;
 
 <style>
   figure {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
     margin: 0;
-    padding: 0;
+    padding: 2rem 0;
+    background-color: white;
   }
 
   figcaption {
@@ -23,7 +26,9 @@ const { company } = Astro.props;
   }
 
   img {
-    width: 100%;
+    width: 80%;
+    margin: auto;
+    object-fit: cover;
   }
 
   .nav {

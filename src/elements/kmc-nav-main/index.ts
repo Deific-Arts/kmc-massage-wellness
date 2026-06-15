@@ -39,7 +39,7 @@ export default class KmcNavMain extends LitElement {
   render() {
     return html`
       <section>
-        <img src="https://placehold.co/90x40?text=Logo" alt="Logo">
+        <img src="${this.filled ? '/logo/transparent.png' : '/logo/white.png'}" alt="KMC Massage & Wellness Logo" width="148">
         <nav>
           <slot></slot>
         </nav>
@@ -56,7 +56,10 @@ export default class KmcNavMain extends LitElement {
   }
 
   private handleBookClick() {
-    this.appController.actions?.setBookModalOpened(!this.appController.data.bookModalOpened);
+    // this.appController.actions?.setBookModalOpened(!this.appController.data.bookModalOpened);
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    window.open('https://kimberlylaughtoncoleman.glossgenius.com/services','Book an Appointment',`width=${width},height=${height}`);
   }
 
   private handleDrawerToggle() {
