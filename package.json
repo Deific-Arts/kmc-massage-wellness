@@ -12,10 +12,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.2",
-    "astro": "^6.3.3",
-    "kemet-ui": "^4.1.0",
+    "@astrojs/sitemap": "^3.7.6",
+    "astro": "^7.4.13",
+    "kemet-ui": "^5.0.5",
     "lit": "^3.3.3",
-    "zustand": "^5.0.13"
+    "swiper": "^14.4.0",
+    "zustand": "^5.1.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "typescript": "~5.9.3"
   }
 }

@@ -21,41 +21,45 @@ const { title, description } = Astro.props;
 	</head>
 	<body>
     <kemet-drawer overlay side="right">
-      <aside slot="navigation">
+      <aside slot="sidebar">
         <Aside company="KMC Massage and Wellness">
           <MainNav />
         </Aside>
       </aside>
-      <main slot="content">
+      <main slot="body">
         <slot />
         <Footer />
       </main>
     </kemet-drawer>
-    <kemet-modal class="book" close-on-click>
+    <kemet-dialog class="book" close-on-click>
       <div style="height: 80vh;">
         <iframe src="https://kimberlylaughtoncoleman.glossgenius.com/services" style="width: 100%; height: 100%; border: none;"></iframe>
       </div>
-    </kemet-modal>
+    </kemet-dialog>
 	</body>
 </html>
 <script>
   // styles
-  import 'kemet-ui/styles/kemet.base.css';
+  import 'kemet-ui/styles/tokens.css';
   import '../styles/base.css';
   import '../styles/cea.css';
 
   // elements
-  import 'kemet-ui/elements/button';
+  import 'kemet-ui/button';
+  import 'kemet-ui/drawer';
+  import 'kemet-ui/dialog';
+  import 'kemet-ui/icon';
   import '../elements/kmc-button/';
+  import '../elements/kmc-nav-main';
 
   // handle app state
   import appStore from '../stores/app';
-  import HTMLKemetDrawerElement from 'kemet-ui/elements/drawer.js';
-  import HTMLKemetModalElement from 'kemet-ui/elements/modal.js';
-  import HTMLKmcNavMainElement from '../elements/kmc-nav-main';
+  import type HTMLKemetDrawerElement from 'kemet-ui/drawer';
+  import type HTMLKemetDialogElement from 'kemet-ui/dialog';
+  import type HTMLKmcNavMainElement from '../elements/kmc-nav-main';
 
   const drawer = document.querySelector('kemet-drawer') as HTMLKemetDrawerElement;
-  const bookModal = document.querySelector('kemet-modal.book') as HTMLKemetModalElement;
+  const bookModal = document.querySelector('kemet-dialog.book') as HTMLKemetDialogElement;
   const mainNav = document.querySelector('kmc-nav-main') as HTMLKmcNavMainElement;
 
   appStore.subscribe((state) => {
@@ -64,7 +68,7 @@ const { title, description } = Astro.props;
     mainNav.filled = !state.drawerOpened;
   });
 
-  bookModal.addEventListener('kemet-closed', () => {
+  bookModal.addEventListener('kemet-dialog-closed', () => {
     appStore.setState({ bookModalOpened: false });
   });
 </script>

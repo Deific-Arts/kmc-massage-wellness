@@ -27,10 +27,10 @@ kmc-nav-main {
   }
 }
 
-kemet-modal {
-  --kemet-modal-radius: 0.5rem;
-  --kemet-modal-dialog-min-width: 80%;
-  --kemet-modal-dialog-mobile-width: 90%;
+kemet-dialog {
+  --kemet-dialog-radius: 0.5rem;
+  --kemet-dialog-min-width: 80%;
+  --kemet-dialog-mobile-width: 90%;
 }
 
 kemet-drawer {
