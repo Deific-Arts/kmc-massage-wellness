@@ -2,7 +2,6 @@
   <section>
     <h2>Enhancements</h2>
     <kmc-carousel>
-      <kmc-carousel-track>
         <kmc-carousel-slide>
           <div>
             <h3>Cold Stone Face Massage</h3>
@@ -45,7 +44,6 @@
             <p>Upgrade your massage lotion to premium CBD oil to deeply target inflammation and muscle soreness.</p>
           </div>
         </kmc-carousel-slide>
-      </kmc-carousel-track>
     </kmc-carousel>
   </section>
 </kmc-enhancements>
@@ -86,13 +84,17 @@
     kmc-carousel-track {
       display: flex;
       gap: var(--gap);
-      animation: slideTwoItems 18s infinite ease-in-out;
+      /* animation: slideTwoItems 18s infinite ease-in-out; */
     }
 
     kmc-carousel-slide {
-      /* 50% width minus half the gap ensures exactly 2 items fit per view */
-      flex: 0 0 calc(50% - (var(--gap) / 2));
+      flex: 0 0 100%;
       scroll-snap-align: start;
+
+      @media (width > 1024px) {
+        /* 50% width minus half the gap ensures exactly 2 items fit per view */
+        flex: 0 0 calc(50% - (var(--gap) / 2));
+      }
     }
 
     &::scroll-button(left),
